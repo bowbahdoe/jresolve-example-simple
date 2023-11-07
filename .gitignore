@@ -1,2 +1,7 @@
 build
 .DS_Store
+.idea
+node_modules
+*.iml
+.lsp
+.clj-kondo

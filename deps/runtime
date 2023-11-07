@@ -1,2 +1,4 @@
 pkg:maven/org.slf4j/slf4j-simple@2.0.9
-build/classes
+build/modules/dev.mccue.disco
+build/modules/dev.mccue.disco.util
+pkg:git/github.com/
