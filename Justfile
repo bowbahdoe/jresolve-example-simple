@@ -6,9 +6,9 @@ help:
 install:
   rm -rf build/argfiles
   jresolve --dependency-file deps/compile --output-file build/argfiles/compile
-  jresolve --dependency-file deps/compile --dependency-file deps/runtime --output-file build/argfiles/runtime
-  jresolve --dependency-file deps/compile --dependency-file deps/runtime --dependency-file deps/test_compile --output-file build/argfiles/test_compile
-  jresolve --dependency-file deps/compile --dependency-file deps/runtime --dependency-file deps/test_compile --dependency-file deps/test_runtime --output-file build/argfiles/test_runtime
+  jresolve --dependency-file deps/compile,deps/runtime --output-file build/argfiles/runtime
+  jresolve --dependency-file deps/compile,deps/runtime,deps/test_compile --output-file build/argfiles/test_compile
+  jresolve --dependency-file deps/compile,deps/runtime,deps/test_compile,deps/test_runtime --output-file build/argfiles/test_runtime
 
 # Compiles the code
 compile:
@@ -19,6 +19,7 @@ compile:
 run: compile
   java --class-path @build/argfiles/runtime Main
 
+# Runs the tests
 test: compile
   rm -rf build/test_classes
   javac --class-path @build/argfiles/test_compile -d build/test_classes test/TestEx.java
