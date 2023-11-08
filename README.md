@@ -1,3 +1,8 @@
+## What is this
+
+This is an example multi module project setup with unit tests and annotation processing.
+The code itself is mostly placeholder.
+
 ## Getting Started
 
 - Install [just](https://github.com/casey/just)
