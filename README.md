@@ -6,7 +6,7 @@
 First,
 ```
 just install
-``
+```
 
 Then you can use any of the other commands like
 
