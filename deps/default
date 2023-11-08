@@ -1,3 +1,2 @@
 pkg:maven/org.slf4j/slf4j-api@2.0.9
 pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.15.3
-pkg:maven/com.github.thegatesdev/maple@4.0.0?repository=jitpack

@@ -5,24 +5,16 @@ help:
 # Installs dependencies
 install: 
   rm -rf build/argfiles
-  jresolve --maven-repositories-file=repositories.json \
-           --output-file build/argfiles/annotation_processing \
+  jresolve --output-file build/argfiles/annotation_processing \
            @deps/annotation_processing
-  jresolve --maven-repositories-file=repositories.json \
-           --output-file build/argfiles/compile \
+  jresolve --output-file build/argfiles/compile \
            @deps/default @deps/compile
-  jresolve --maven-repositories-file=repositories.json \
-           --output-file build/argfiles/runtime \
+  jresolve --output-file build/argfiles/runtime \
            @deps/default @deps/runtime
-  jresolve --maven-repositories-file=repositories.json \
-           --output-file build/argfiles/test_compile \
+  jresolve --output-file build/argfiles/test_compile \
            @deps/default @deps/runtime @deps/test_default
-  jresolve --maven-repositories-file=repositories.json \
-           --output-file build/argfiles/test_runtime \
+  jresolve --output-file build/argfiles/test_runtime \
            @deps/default @deps/runtime @deps/test_default @deps/test_runtime
-           
-
-  npm install
 
 # Compiles the code
 compile: 
@@ -67,11 +59,3 @@ link: compile
   jlink --module-path @build/argfiles/runtime \
         --add-modules dev.mccue.disco \
         --output build/jre
-
-# Formats the code
-format:
-    npx prettier --plugin=prettier-plugin-java --write "**/*.java"
-
-# Checks if code is unformatted
-check_format:
-    npx prettier --plugin=prettier-plugin-java --check "**/*.java"
